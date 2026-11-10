@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <title>앱 소개 · tongsimso-board</title>
+    <meta name="description" content="통심소 현황판의 용도와 Google Drive 연결 방식을 소개합니다.">
+    <style>
+:root {
+  color-scheme: light;
+  --ink: #15372f;
+  --text: #273c35;
+  --muted: #53695e;
+  --line: #c7d3c6;
+  --paper: #fafbf6;
+  --forest: #193e34;
+  --light: #f5f6ea;
+  --accent: #d4e59d;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font: 16px/1.75 "Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+a {
+  color: var(--ink);
+  text-underline-offset: .23em;
+}
+a:focus-visible {
+  outline: 3px solid #ab651c;
+  outline-offset: 5px;
+}
+.wrap {
+  width: min(100% - 40px,900px);
+  margin-inline: auto;
+}
+.header {
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 76px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: -.03em;
+  text-decoration: none;
+}
+.mark {
+  width: 15px;
+  height: 16px;
+  display: inline-block;
+  border: 2px solid var(--forest);
+  border-top-width: 6px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,transparent 40%,var(--forest) 40% 56%,transparent 56%);
+}
+nav {
+  display: flex;
+  gap: 1.15rem;
+}
+nav a {
+  font-size: .85rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+nav a[aria-current=page] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+.hero {
+  background: var(--forest);
+  color: var(--light);
+  padding: clamp(44px,7vw,78px) 0;
+}
+.hero h1,.doc h1 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: 1.19;
+  font-size: clamp(2.25rem,5vw,3.85rem);
+}
+.hero p {
+  margin: 1.2rem 0 0;
+  max-width: 600px;
+  color: #e0e9da;
+  line-height: 1.8;
+}
+.content {
+  padding: 38px 0 56px;
+}
+.content h2,.doc h2 {
+  color: var(--ink);
+  font-size: 1.32rem;
+  line-height: 1.4;
+  letter-spacing: -.045em;
+  margin: 0 0 .6rem;
+}
+.row {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+  gap: 24px;
+  padding: 25px 0;
+  border-top: 1px solid var(--line);
+}
+.row p,.doc p {
+  margin: 0;
+}
+.more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+.doc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(38px,6vw,68px) 0;
+}
+.doc header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.7rem;
+}
+.doc header p {
+  color: var(--muted);
+  margin-top: 1rem;
+  font-size: .92rem;
+}
+.doc section {
+  margin-top: 2rem;
+}
+.doc p+p {
+  margin-top: .7rem;
+}
+.foot {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .83rem;
+}
+.foot .bar {
+  min-height: 66px;
+}
+.foot a {
+  color: inherit;
+}
+.skip {
+  position: absolute;
+  left: -10000px;
+}
+.skip:focus {
+  left: 12px;
+  top: 8px;
+  background: white;
+  padding: 5px;
+  z-index: 2;
+}
+code {
+  font:  .9em ui-monospace,Consolas,monospace;
+  color: #33563d;
+  background: #eaf0e2;
+  border-radius: 3px;
+  padding: .13em .34em;
+}
+@media(max-width:620px) {
+  .bar {
+    min-height: 64px;
+  }
+  .row {
+    display: block;
+    padding: 19px 0;
+  }
+  .row h2 {
+    margin-bottom: .5rem;
+  }
+  nav {
+    gap: .7rem;
+  }
+  .wrap {
+    width: calc(100% - 36px);
+  }
+}
+@media(max-width:390px) {
+  .bar {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-block: 10px;
+  }
+  nav a {
+    font-size: .8rem;
+  }
+}
+
+    </style>
+  </head>
+  <body><a class="skip" href="#main">본문으로 바로가기</a>
+    <header class="header">
+      <div class="bar wrap"><a class="brand" href="./"><span class="mark" aria-hidden="true"></span>tongsimso-board</a>
+        <nav aria-label="주 메뉴"><a href="./" aria-current="page">앱 소개</a><a href="privacy.html">개인정보처리방침</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <h1>통심소 현황판</h1>
+          <p>tongsimso-board는 운영자가 자신의 Google Drive에 모은 작업 기록을 읽고, 어느 일이 진행 중이고 어떤 결정이 남았는지 확인하는 개인용 앱입니다.</p>
+        </div>
+      </section>
+      <div class="wrap content">
+        <section class="row">
+          <h2>현황판에서 보는 일</h2>
+          <p>작업 카드에는 마지막 기록과 다음 담당자가 표시됩니다. 운영자는 검토할 자료를 확인하고, 승인이 필요한 작업은 등록한 기기에서 결정합니다. 실제 카드와 자료는 운영자의 비공개 환경에서만 열립니다.</p>
+        </section>
+        <section class="row">
+          <h2>Drive를 연결하는 이유</h2>
+          <p>현황판은 지정한 폴더의 기록과 미리보기를 읽어 작업 상태를 갱신합니다. 보조 도구 J는 운영자가 요청한 자료를 읽고, 작업 결과를 새 파일로 저장합니다. 두 도구는 각각 권한을 승인받습니다.</p>
+        </section><a class="more" href="privacy.html">Drive 권한과 개인정보 처리 방식 보기</a>
+      </div>
+    </main>
+    <footer class="foot">
+      <div class="bar wrap"><span>통심소 현황판</span><a href="privacy.html">개인정보처리방침</a>
+      </div>
+    </footer>
+  </body>
+</html>
